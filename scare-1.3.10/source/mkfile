@@ -1,0 +1,22 @@
+</sys/src/ape/config
+all:
+	pcc -D_POSIX_SOURCE -D_BSD_EXTENSION -D_PLAN9_SOURCE -c \
+	  sctafpar.c sctaffil.c scprops.c scvars.c scexpr.c scprintf.c	\
+	  scinterf.c scparser.c sclibrar.c scrunner.c scevents.c	\
+	  scnpcs.c scobjcts.c sctasks.c screstrs.c scgamest.c scserial.c	\
+	  scresour.c scmemos.c scutils.c sclocale.c scdebug.c	\
+	  crc32.c inffast.c inflate.c inftrees.c zutil.c compress.c	\
+	  adler32.c deflate.c trees.c os_ansi.c
+	pcc -D_POSIX_SOURCE -D_BSD_EXTENSION -D_PLAN9_SOURCE -o scare	\
+	  sctafpar.$O sctaffil.$O scprops.$O scvars.$O scexpr.$O scprintf.$O	\
+	  scinterf.$O scparser.$O sclibrar.$O scrunner.$O scevents.$O	\
+	  scnpcs.$O scobjcts.$O sctasks.$O screstrs.$O scgamest.$O scserial.$O	\
+	  scresour.$O scmemos.$O scutils.$O sclocale.$O scdebug.$O	\
+	  crc32.$O inffast.$O inflate.$O inftrees.$O zutil.$O compress.$O	\
+	  adler32.$O deflate.$O trees.$O os_ansi.$O
+install:
+	mk
+	cp scare /$objtype/bin
+clean:
+	rm *.$O
+	rm scare

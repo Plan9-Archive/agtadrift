@@ -1,0 +1,10 @@
+#!/bin/rc
+
+rfork ne
+builddir=`{pwd}
+cd agt
+mk install
+cd $builddir
+cd scare-1.3.10/source
+mk install
+cd $builddir

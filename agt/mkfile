@@ -1,0 +1,26 @@
+</sys/src/ape/config
+all:
+	pcc -D_POSIX_SOURCE -D_PLAN9_SOURCE -c \
+	  agil.c agtread.c disassemble.c interface.c runverb.c \
+	  agilstub.c agxfile.c exec.c metacommand.c	os_none.c savegame.c \
+	  agt2agx.c	auxfile.c filename.c object.c token.c \
+	  agtout.c debugcmd.c gamedata.c parser.c util.c
+	pcc -D_POSIX_SOURCE -D_PLAN9_SOURCE -o agil	\
+	  parser.$O exec.$O runverb.$O metacommand.$O savegame.$O debugcmd.$O agil.$O \
+	  token.$O disassemble.$O object.$O \
+	  agtread.$O gamedata.$O util.$O agxfile.$O auxfile.$O filename.$O \
+	  interface.$O os_none.$O 
+	pcc -D_POSIX_SOURCE -D_PLAN9_SOURCE -o agtout	\
+	  agtout.$O disassemble.$O agilstub.$O \
+	  agtread.$O gamedata.$O util.$O agxfile.$O auxfile.$O filename.$O
+	pcc -D_POSIX_SOURCE -D_PLAN9_SOURCE -o agt2agx	\
+	  agt2agx.$O agilstub.$O \
+	  agtread.$O gamedata.$O util.$O agxfile.$O auxfile.$O filename.$O
+install:
+	mk
+	cp agil /$objtype/bin
+	cp agt2agx /$objtype/bin
+	cp agtout /$objtype/bin
+clean:
+	rm *.$O
+	rm agil agt2agx agtout

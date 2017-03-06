@@ -1,0 +1,4 @@
+Plan 9 ports of AGT and Adrift interactive fiction interpreters
+The AGT terp is named agil
+The Adrift terp is named scare
+Run the buildall script to install them
